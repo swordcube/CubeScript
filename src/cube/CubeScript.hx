@@ -41,7 +41,7 @@ class CubeScript {
 	/**
 	 * The current version of CubeScript. [READ ONLY]
 	 */
-	public static var version(default, never):VersionScheme = {major: 1, minor: 1, patch: 0};
+	public static var version(default, never):VersionScheme = {major: 0, minor: 2, patch: 0};
 
 	/**
 	 * Whether or not this script was destroyed.
@@ -171,8 +171,8 @@ class CubeScript {
 	 */
 	public function setClass(cl:Class<Dynamic>) {
 		final cln:String = Type.getClassName(cl);
-		final i:Int = cln.lastIndexOf(".");
-		set((i < 0) ? cln : cln.substr(i, cln.length), cl);
+		final i:Int = cln.lastIndexOf(".") + 1;
+		set(cln.substr(i, cln.length), cl);
 	}
 
 	/**
@@ -225,6 +225,7 @@ class CubeScript {
 			setClass(sys.io.Process);
 			setClass(Reflect);
 		}
+		setClass(CubeScript);
 		setClass(Date);
 		setClass(DateTools);
 		setClass(Math);
