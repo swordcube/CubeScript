@@ -1,0 +1,8 @@
+--library hscript-improved
+
+--class-path src
+--define analyzer-optimize
+--define CUSTOM_CLASSES
+--define hscriptPos
+
+--interp

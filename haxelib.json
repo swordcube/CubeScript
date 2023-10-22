@@ -1,0 +1,14 @@
+{
+	"name": "CubeScript",
+	"url" : "https://github.com/swordcube/CubeScript",
+	"license": "MIT",
+	"tags": ["haxe", "hscript", "hx", "hxs", "hsc"],
+	"description": "A simple to use wrapper for HScript.",
+	"version": "0.1.0",
+	"classPath": "src",
+	"releasenote": "Initial release",
+	"contributors": ["swordcube"],
+	"dependencies": {
+		"hscript-improved": ""
+	}
+}
