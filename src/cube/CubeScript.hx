@@ -13,21 +13,20 @@ typedef ScriptInitFlags = {
 	 * Whether or not to have a bunch of preset
 	 * variables for this script, to avoid mass-amounts of importing.
 	 */
-	 @:optional var preset:Bool;
+	@:optional var preset:Bool;
 
 	 /**
 	  * Whether or not to allow unsafe classes to be imported.
 	  */
-	  @:optional var unsafe:Bool;
+	@:optional var unsafe:Bool;
 }
-typedef TraceFunction = Dynamic;
 typedef FunctionCall = {
 	/**
 	 * The value that this function returned
 	 * when being called.
 	 */
 	var value:Dynamic;
-
+	 
 	/**
 	 * The error that occured when calling
 	 * the function as a string.
@@ -36,8 +35,14 @@ typedef FunctionCall = {
 	 */
 	var error:String;
 }
+typedef TraceFunction = Dynamic;
 
 class CubeScript {
+	/**
+	 * The current version of CubeScript. [READ ONLY]
+	 */
+	public static var version(default, never):VersionScheme = {major: 1, minor: 1, patch: 0};
+
 	/**
 	 * Whether or not this script was destroyed.
 	 */
@@ -233,6 +238,7 @@ class CubeScript {
 		#if openfl
 		setClass(openfl.utils.Assets);
 		#end
+		setPreprocessorValue("CubeScript", true);
 	}
 
 	/**
@@ -320,5 +326,19 @@ class CubeScript {
 		if (err.startsWith(fn))
 			err = err.substr(fn.length);
 		Sys.println(err);
+	}
+}
+
+@:structInit
+class VersionScheme {
+	public var major:Int;
+	public var minor:Int;
+	public var patch:Int = 0;
+
+	/**
+	 * Returns a string formatted like semantic versioning.
+	 */
+	public function toString() {
+		return '${major}.${minor}.${patch}';
 	}
 }
