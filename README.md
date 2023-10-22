@@ -7,19 +7,19 @@ A simple to use wrapper for HScript.
 Let's start off with the basics of using CubeScript. Here are
 some basic examples:
 
-### ❕ Running a string
+### 📜 Running a string
 ```haxe
 var script = new CubeScript("trace('Hello CubeScript!');", {preset: true, unsafe: false});
 script.start(); // The trace runs as soon as the script starts.
 ```
 
-### ❕ Running a file
+### 📜 Running a file
 ```haxe
 var script = new CubeScript(File.getContent("myScript.hx"), {preset: true, unsafe: false});
 script.start(); // The script's code runs as soon as the script starts.
 ```
 
-### ❕ Running a function
+### 📜 Running a function
 ```haxe
 var script = new CubeScript("
 	function test(arg1, arg2) {
