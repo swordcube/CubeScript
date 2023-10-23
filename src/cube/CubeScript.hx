@@ -155,7 +155,7 @@ class CubeScript {
 	 */
 	public function set(variable:String, value:Dynamic) {
 		if(destroyed) return;
-		if(interp.importBlocklist.contains(variable)) {
+		if(!unsafe && interp.importBlocklist.contains(variable)) {
 			final posInfo = interp.posInfos();
 			Sys.println('${fileName}:${posInfo.lineNumber}: ${variable} is an unsafe variable and cannot be imported!');
 			return;

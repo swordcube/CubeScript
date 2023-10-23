@@ -6,9 +6,7 @@
 	"description": "A simple to use wrapper for HScript.",
 	"version": "0.2.0",
 	"classPath": "src",
-	"releasenote": "Initial release",
+	"releasenote": "Embed hscript-improved into the lib, add version field to CubeScript.hx, and fix some bugs",
 	"contributors": ["swordcube"],
-	"dependencies": {
-		"hscript-improved": ""
-	}
+	"dependencies": {}
 }
