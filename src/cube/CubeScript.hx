@@ -181,8 +181,10 @@ class CubeScript {
 	 * @param ab  The path to abstract to import. (Ex: "example.proj.MyAbstract")
 	 */
 	public function setAbstract(ab:String) {
-		final i:Int = ab.lastIndexOf(".");
-		set((i < 0) ? ab : ab.substr(i, ab.length), Type.getClass('${ab}_HSC'));
+		final abn:String = ab.substr(ab.lastIndexOf(".") + 1, ab.length);
+		final c = Type.resolveClass(ab);
+		final chsc = Type.resolveClass('${ab}_HSC');
+		set(abn, (c != null) ? c : chsc);
 	}
 
 	/**
