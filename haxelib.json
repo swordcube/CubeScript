@@ -4,9 +4,9 @@
 	"license": "MIT",
 	"tags": ["haxe", "hscript", "hx", "hxs", "hsc"],
 	"description": "A simple to use wrapper for HScript.",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"classPath": "src",
-	"releasenote": "Embed hscript-improved into the lib, add version field to CubeScript.hx, and fix some bugs",
+	"releasenote": "Fix call() always returning success and null value",
 	"contributors": ["swordcube"],
 	"dependencies": {}
 }
