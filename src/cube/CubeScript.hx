@@ -199,14 +199,18 @@ class CubeScript {
 	public function call(method:String, ?parameters:Array<Dynamic>):FunctionCall {
 		if(parameters == null) parameters = [];
 		try {
-			final func = get(method);
+			var retValue:Dynamic = null;
+			final func:Dynamic = get(method);
 			if(func != null)
-				Reflect.callMethod(null, func, parameters);
+				retValue = Reflect.callMethod(null, func, parameters);
+			return {value: retValue, error: 'Success'};
 		} catch(e:Error) {
 			_errorHandler(e);
+			return {value: null, error: 'Failure - ${e}'};
 		} catch(e) {
 			final posInfos = interp.posInfos();
 			_errorHandler(new Error(ECustom(e.toString()), 0, 0, fileName, posInfos.lineNumber));
+			return {value: null, error: 'Failure - ${e}'};
 		}
 		return {value: null, error: "Success"};
 	}
